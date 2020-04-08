@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XBB-K9-Fqz">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="kdo-KJ-6Nx">
+            <objects>
+                <viewController id="XBB-K9-Fqz" customClass="ViewController" customModule="CS4440" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QwD-us-Dbc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scr-gE-adk">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="85D-dL-O9M">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaY-4W-dVJ">
+                                                <rect key="frame" x="153" y="0.0" width="108" height="652"/>
+                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type a stock name or twitter handle...." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B2y-nu-cpD">
+                                                <rect key="frame" x="0.0" y="707" width="414" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="hkS-ON-N9D"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQM-Oo-RJA">
+                                                <rect key="frame" x="67.5" y="812" width="279" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="gVT-Fd-aBy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <state key="normal" title="Predict stock performance!">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="predictPressed:" destination="XBB-K9-Fqz" eventType="touchUpInside" id="ZTJ-CL-6om"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="B2y-nu-cpD" firstAttribute="leading" secondItem="85D-dL-O9M" secondAttribute="leading" id="KIm-6a-YJy"/>
+                                            <constraint firstAttribute="trailing" secondItem="B2y-nu-cpD" secondAttribute="trailing" id="Ppm-2M-AKz"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="85D-dL-O9M" secondAttribute="trailing" id="8D0-Ex-kNA"/>
+                                    <constraint firstItem="85D-dL-O9M" firstAttribute="leading" secondItem="scr-gE-adk" secondAttribute="leading" id="T8D-px-IqN"/>
+                                    <constraint firstItem="85D-dL-O9M" firstAttribute="top" secondItem="scr-gE-adk" secondAttribute="top" id="l8J-Z7-UUn"/>
+                                    <constraint firstAttribute="bottom" secondItem="85D-dL-O9M" secondAttribute="bottom" id="t63-vT-d1H"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="scr-gE-adk" firstAttribute="trailing" secondItem="2nh-kF-pWO" secondAttribute="trailing" id="P5W-yM-LLs"/>
+                            <constraint firstItem="scr-gE-adk" firstAttribute="bottom" secondItem="2nh-kF-pWO" secondAttribute="bottom" id="QkG-JZ-jGY"/>
+                            <constraint firstItem="scr-gE-adk" firstAttribute="top" secondItem="QwD-us-Dbc" secondAttribute="top" id="j92-yN-Lcv"/>
+                            <constraint firstItem="scr-gE-adk" firstAttribute="leading" secondItem="2nh-kF-pWO" secondAttribute="leading" id="vMe-Qk-1tS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2nh-kF-pWO"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="scr-gE-adk" id="HXe-Ha-Hvx"/>
+                        <outlet property="sentimentLabel" destination="oaY-4W-dVJ" id="6DS-gE-7PY"/>
+                        <outlet property="textField" destination="B2y-nu-cpD" id="hDR-z7-W56"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QsJ-r5-qtk" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>
