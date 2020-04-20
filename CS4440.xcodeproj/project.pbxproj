@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AFF14BD83BD71B26CFE0C793 /* Pods_CS4440.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC7885ABD3E9174AAF8219F /* Pods_CS4440.framework */; };
+		F47C7A3D244E267A0074D635 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47C7A3C244E267A0074D635 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F4EE3E3B243D4744006A5F91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EE3E3A243D4744006A5F91 /* AppDelegate.swift */; };
 		F4EE3E41243D4746006A5F91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EE3E40243D4746006A5F91 /* Assets.xcassets */; };
 		F4EE3E44243D4746006A5F91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EE3E43243D4746006A5F91 /* Preview Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		25D17432DD2AD97B0E3C767C /* Pods-CS4440.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4440.release.xcconfig"; path = "Target Support Files/Pods-CS4440/Pods-CS4440.release.xcconfig"; sourceTree = "<group>"; };
 		3FC7885ABD3E9174AAF8219F /* Pods_CS4440.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CS4440.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4038F8C922121F7A65811281 /* Pods-CS4440.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4440.debug.xcconfig"; path = "Target Support Files/Pods-CS4440/Pods-CS4440.debug.xcconfig"; sourceTree = "<group>"; };
+		F47C7A3C244E267A0074D635 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EE3E37243D4744006A5F91 /* CS4440.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS4440.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EE3E3A243D4744006A5F91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4EE3E40243D4746006A5F91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F47C7A3D244E267A0074D635 /* SwiftyJSON.framework in Frameworks */,
 				F4EE3E69244DEA16006A5F91 /* SwifteriOS.framework in Frameworks */,
 				AFF14BD83BD71B26CFE0C793 /* Pods_CS4440.framework in Frameworks */,
 			);
@@ -151,6 +154,7 @@
 		F4EE3E68244DEA16006A5F91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F47C7A3C244E267A0074D635 /* SwiftyJSON.framework */,
 				3FC7885ABD3E9174AAF8219F /* Pods_CS4440.framework */,
 			);
 			name = Frameworks;
