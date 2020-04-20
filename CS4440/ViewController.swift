@@ -17,31 +17,37 @@ class ViewController: UIViewController {
     @IBOutlet weak var sentimentLabel: UILabel!
     
     // Instantiation using Twitter's OAuth Consumer Key and secret
-   let swifter = Swifter(consumerKey: "UhIGvRC8EL7QDo0aXs2Hwjv0B", consumerSecret: "5Qv87L0V2FtLR8tKkj02mf7hwY5mMUkKB8qTCF5oDpHoNJ7KRK")
+   let swifter = Swifter(consumerKey: "API KEY", consumerSecret: "API SECRET")
     
     let classifier = TwitterSentimentClassifer()
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //testing classifier
-//        let output = try! classifier.prediction(text: "@Amazon is a terrible company")
-//        print(output.label) //printing neg!
-        
-        // using Twitter Standard Search API
-        //https://developer.twitter.com/en/docs/tweets/search/overview/standard
-        //return a collection of relevant tweets based on a query
-        swifter.searchTweet(using: "Facebook", lang: "en", count: 50, tweetMode: TweetMode.extended, success: { (results, searchMetadata) in
-            // 'full_text' field of JSON holds the tweet message
-            var tweets = [TwitterSentimentClassiferInput]()
+    
+    }
+
+    @IBAction func predictPressed(_ sender: Any) {
+        // when text field is not empy
+        if let userInput = textField.text {
+            //testing classifier
+            //let output = try! classifier.prediction(text: "@Amazon is a terrible company")
+            //print(output.label) //printing neg!
             
+            // using Twitter Standard Search API
+            //https://developer.twitter.com/en/docs/tweets/search/overview/standard
+            //return a collection of relevant tweets based on a query
+            swifter.searchTweet(using: "Facebook", lang: "en", count: 50, tweetMode: TweetMode.extended, success: { (results, searchMetadata) in
+                // 'full_text' field of JSON holds the tweet message
+                
+            var tweets = [TwitterSentimentClassiferInput]()
+                
             //get 50 tweets about the input text
             for x in 0..<50 {
                 if let tweet_msg = results[x]["full_text"].string {
                     tweets.append(.init(text: tweet_msg))
                 }
             }
-            
+                
             // do sentiment analysis on the tweets
             do {
                 let predictions = try self.classifier.predictions(inputs: tweets)
@@ -57,22 +63,21 @@ class ViewController: UIViewController {
                         sScore -= 1
                     }
                 }
-                print(sScore)
-                
-                
+                if sScore > 10 {
+                    self.sentimentLabel.text = "Twitter users regard this company positively! This stock is a good choice."
+                } else if sScore < -10 {
+                    self.sentimentLabel.text = "Twitter users do not like this company today. Invest at your own risk :("
+                } else {
+                    self.sentimentLabel.text = "Twitter users are feeling neutral about this company."
+                }
+                    
             } catch {
                 print("Error classifying tweets")
             }
-            
-            
         }) { (err) in
             print("Error occured connecting to Twitter API")
         }
-        
     }
-
-    @IBAction func predictPressed(_ sender: Any) {
-    
     
     }
     
