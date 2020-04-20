@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AFF14BD83BD71B26CFE0C793 /* Pods_CS4440.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC7885ABD3E9174AAF8219F /* Pods_CS4440.framework */; };
 		F4EE3E3B243D4744006A5F91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EE3E3A243D4744006A5F91 /* AppDelegate.swift */; };
 		F4EE3E41243D4746006A5F91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EE3E40243D4746006A5F91 /* Assets.xcassets */; };
 		F4EE3E44243D4746006A5F91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EE3E43243D4746006A5F91 /* Preview Assets.xcassets */; };
@@ -56,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25D17432DD2AD97B0E3C767C /* Pods-CS4440.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4440.release.xcconfig"; path = "Target Support Files/Pods-CS4440/Pods-CS4440.release.xcconfig"; sourceTree = "<group>"; };
+		3FC7885ABD3E9174AAF8219F /* Pods_CS4440.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CS4440.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4038F8C922121F7A65811281 /* Pods-CS4440.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4440.debug.xcconfig"; path = "Target Support Files/Pods-CS4440/Pods-CS4440.debug.xcconfig"; sourceTree = "<group>"; };
 		F4EE3E37243D4744006A5F91 /* CS4440.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS4440.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EE3E3A243D4744006A5F91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4EE3E40243D4746006A5F91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,12 +78,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4EE3E69244DEA16006A5F91 /* SwifteriOS.framework in Frameworks */,
+				AFF14BD83BD71B26CFE0C793 /* Pods_CS4440.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BFBEA08793CDDD2AAF621CD1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4038F8C922121F7A65811281 /* Pods-CS4440.debug.xcconfig */,
+				25D17432DD2AD97B0E3C767C /* Pods-CS4440.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F4EE3E2E243D4744006A5F91 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +101,7 @@
 				F4EE3E39243D4744006A5F91 /* CS4440 */,
 				F4EE3E38243D4744006A5F91 /* Products */,
 				F4EE3E68244DEA16006A5F91 /* Frameworks */,
+				BFBEA08793CDDD2AAF621CD1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +151,7 @@
 		F4EE3E68244DEA16006A5F91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3FC7885ABD3E9174AAF8219F /* Pods_CS4440.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -147,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4EE3E4B243D4746006A5F91 /* Build configuration list for PBXNativeTarget "CS4440" */;
 			buildPhases = (
+				3E0F506777498199073A932B /* [CP] Check Pods Manifest.lock */,
 				F4EE3E33243D4744006A5F91 /* Sources */,
 				F4EE3E34243D4744006A5F91 /* Frameworks */,
 				F4EE3E35243D4744006A5F91 /* Resources */,
+				8C8AE08C83951D8E58E6DB95 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,6 +268,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E0F506777498199073A932B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CS4440-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C8AE08C83951D8E58E6DB95 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			dependencyFile = "$(DERIVED_FILES_DIR)/$(INPUT_FILE_PATH).d";
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CS4440/Pods-CS4440-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CS4440/Pods-CS4440-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CS4440/Pods-CS4440-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F4EE3E33243D4744006A5F91 /* Sources */ = {
@@ -392,6 +453,7 @@
 		};
 		F4EE3E4C243D4746006A5F91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4038F8C922121F7A65811281 /* Pods-CS4440.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -411,6 +473,7 @@
 		};
 		F4EE3E4D243D4746006A5F91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25D17432DD2AD97B0E3C767C /* Pods-CS4440.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

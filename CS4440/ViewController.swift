@@ -8,6 +8,8 @@
 
 import UIKit
 import SwifteriOS
+import SwiftyJSON
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var backgroundView: UIView!
@@ -15,16 +17,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var sentimentLabel: UILabel!
     
     // Instantiation using Twitter's OAuth Consumer Key and secret
-    let swifter = Swifter(consumerKey: "API KEY", consumerSecret: "API SECRET")
-
+   let swifter = Swifter(consumerKey: "API Key", consumerSecret: "API Secret")
+    
+    let classifier = TwitterSentimentClassifer()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //testing classifier
+//        let output = try! classifier.prediction(text: "@Amazon is a terrible company")
+//        print(output.label) //printing neg!
         
         // using Twitter Standard Search API
         //https://developer.twitter.com/en/docs/tweets/search/overview/standard
         //return a collection of relevant tweets based on a query
         swifter.searchTweet(using: "@Apple", lang: "en", count: 50, tweetMode: TweetMode.extended, success: { (results, searchMetadata) in
-            // 'text' field of JSON holds the tweet message
+            // 'full-text' field of JSON holds the tweet message
+            
             print(results)
         }) { (err) in
             print("Error occured connecting to Twitter API")
