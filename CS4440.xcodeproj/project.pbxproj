@@ -13,6 +13,7 @@
 		F4EE3E47243D4746006A5F91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4EE3E45243D4746006A5F91 /* LaunchScreen.storyboard */; };
 		F4EE3E4F243D47BF006A5F91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EE3E4E243D47BF006A5F91 /* ViewController.swift */; };
 		F4EE3E51243D4801006A5F91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4EE3E50243D4801006A5F91 /* Main.storyboard */; };
+		F4EE3E55244D4A5C006A5F91 /* TwitterSentimentClassifer.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F4EE3E54244D4A5C006A5F91 /* TwitterSentimentClassifer.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F4EE3E48243D4746006A5F91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4EE3E4E243D47BF006A5F91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F4EE3E50243D4801006A5F91 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F4EE3E54244D4A5C006A5F91 /* TwitterSentimentClassifer.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TwitterSentimentClassifer.mlmodel; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		F4EE3E39243D4744006A5F91 /* CS4440 */ = {
 			isa = PBXGroup;
 			children = (
+				F4EE3E54244D4A5C006A5F91 /* TwitterSentimentClassifer.mlmodel */,
 				F4EE3E3A243D4744006A5F91 /* AppDelegate.swift */,
 				F4EE3E40243D4746006A5F91 /* Assets.xcassets */,
 				F4EE3E45243D4746006A5F91 /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4EE3E4F243D47BF006A5F91 /* ViewController.swift in Sources */,
+				F4EE3E55244D4A5C006A5F91 /* TwitterSentimentClassifer.mlmodel in Sources */,
 				F4EE3E3B243D4744006A5F91 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
