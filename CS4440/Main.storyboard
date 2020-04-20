@@ -21,26 +21,12 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="85D-dL-O9M">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type a stock name or twitter handle...." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B2y-nu-cpD">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="278" placeholderIntrinsicHeight="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQM-Oo-RJA">
+                                                <rect key="frame" x="76.5" y="69" width="278" height="25"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="hkS-ON-N9D"/>
+                                                    <constraint firstAttribute="height" constant="25" id="gVT-Fd-aBy"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaY-4W-dVJ">
-                                                <rect key="frame" x="153" y="105" width="108" height="652"/>
-                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQM-Oo-RJA">
-                                                <rect key="frame" x="67.5" y="812" width="279" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="gVT-Fd-aBy"/>
-                                                </constraints>
+                                                <edgeInsets key="layoutMargins" top="25" left="8" bottom="8" right="8"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <state key="normal" title="Predict stock performance!">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -49,11 +35,30 @@
                                                     <action selector="predictPressed:" destination="XBB-K9-Fqz" eventType="touchUpInside" id="ZTJ-CL-6om"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="108" placeholderIntrinsicHeight="200" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="131" translatesAutoresizingMaskIntoConstraints="NO" id="oaY-4W-dVJ" propertyAccessControl="localizable">
+                                                <rect key="frame" x="161.5" y="149" width="108" height="158"/>
+                                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.34999999999999998"/>
+                                                <edgeInsets key="layoutMargins" top="2" left="2" bottom="2" right="2"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="100" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type a stock name or twitter handle...." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B2y-nu-cpD">
+                                                <rect key="frame" x="25" y="362" width="381" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="hkS-ON-N9D"/>
+                                                </constraints>
+                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="B2y-nu-cpD" firstAttribute="leading" secondItem="85D-dL-O9M" secondAttribute="leading" id="KIm-6a-YJy"/>
                                             <constraint firstAttribute="trailing" secondItem="B2y-nu-cpD" secondAttribute="trailing" id="Ppm-2M-AKz"/>
                                         </constraints>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="25" leading="25" bottom="400" trailing="8"/>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

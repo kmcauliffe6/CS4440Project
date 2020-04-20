@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var sentimentLabel: UILabel!
     
     // Instantiation using Twitter's OAuth Consumer Key and secret
-   let swifter = Swifter(consumerKey: "API KEY", consumerSecret: "API SECRET")
+   let swifter = Swifter(consumerKey: "API Key", consumerSecret: "API Secret Key")
     
     let classifier = TwitterSentimentClassifer()
         
