@@ -8,4 +8,5 @@ target 'CS4440' do
   # Pods for CS4440
 
 pod 'SwiftyJSON'
+pod 'RealmSwift'
 end

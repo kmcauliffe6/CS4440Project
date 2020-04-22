@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AFF14BD83BD71B26CFE0C793 /* Pods_CS4440.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC7885ABD3E9174AAF8219F /* Pods_CS4440.framework */; };
+		2B4D25B639C26C3BB130A55B /* Pods_CS4440.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB0684B51D94C3B76D1609B /* Pods_CS4440.framework */; };
 		F47C7A3D244E267A0074D635 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47C7A3C244E267A0074D635 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F49009072450AF7D00E4A958 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49009002450AEA200E4A958 /* RealmSwift.framework */; };
 		F4EE3E3B243D4744006A5F91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EE3E3A243D4744006A5F91 /* AppDelegate.swift */; };
 		F4EE3E41243D4746006A5F91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EE3E40243D4746006A5F91 /* Assets.xcassets */; };
 		F4EE3E44243D4746006A5F91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EE3E43243D4746006A5F91 /* Preview Assets.xcassets */; };
@@ -59,9 +60,10 @@
 
 /* Begin PBXFileReference section */
 		25D17432DD2AD97B0E3C767C /* Pods-CS4440.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4440.release.xcconfig"; path = "Target Support Files/Pods-CS4440/Pods-CS4440.release.xcconfig"; sourceTree = "<group>"; };
-		3FC7885ABD3E9174AAF8219F /* Pods_CS4440.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CS4440.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4038F8C922121F7A65811281 /* Pods-CS4440.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4440.debug.xcconfig"; path = "Target Support Files/Pods-CS4440/Pods-CS4440.debug.xcconfig"; sourceTree = "<group>"; };
+		6EB0684B51D94C3B76D1609B /* Pods_CS4440.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CS4440.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47C7A3C244E267A0074D635 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F49009002450AEA200E4A958 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EE3E37243D4744006A5F91 /* CS4440.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS4440.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EE3E3A243D4744006A5F91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4EE3E40243D4746006A5F91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,7 +83,8 @@
 			files = (
 				F47C7A3D244E267A0074D635 /* SwiftyJSON.framework in Frameworks */,
 				F4EE3E69244DEA16006A5F91 /* SwifteriOS.framework in Frameworks */,
-				AFF14BD83BD71B26CFE0C793 /* Pods_CS4440.framework in Frameworks */,
+				F49009072450AF7D00E4A958 /* RealmSwift.framework in Frameworks */,
+				2B4D25B639C26C3BB130A55B /* Pods_CS4440.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,8 +157,9 @@
 		F4EE3E68244DEA16006A5F91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F49009002450AEA200E4A958 /* RealmSwift.framework */,
 				F47C7A3C244E267A0074D635 /* SwiftyJSON.framework */,
-				3FC7885ABD3E9174AAF8219F /* Pods_CS4440.framework */,
+				6EB0684B51D94C3B76D1609B /* Pods_CS4440.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -171,7 +175,7 @@
 				F4EE3E33243D4744006A5F91 /* Sources */,
 				F4EE3E34243D4744006A5F91 /* Frameworks */,
 				F4EE3E35243D4744006A5F91 /* Resources */,
-				8C8AE08C83951D8E58E6DB95 /* [CP] Embed Pods Frameworks */,
+				84DE85BE39968C9CF560AED2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,10 +300,9 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8C8AE08C83951D8E58E6DB95 /* [CP] Embed Pods Frameworks */ = {
+		84DE85BE39968C9CF560AED2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			dependencyFile = "$(DERIVED_FILES_DIR)/$(INPUT_FILE_PATH).d";
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
@@ -309,7 +312,7 @@
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CS4440/Pods-CS4440-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CS4440/Pods-CS4440-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;

@@ -9,6 +9,7 @@
 import UIKit
 import SwifteriOS
 import SwiftyJSON
+import RealmSwift
 
 class ViewController: UIViewController {
     
@@ -17,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var sentimentLabel: UILabel!
     
     // Instantiation using Twitter's OAuth Consumer Key and secret
-   let swifter = Swifter(consumerKey: "API Key", consumerSecret: "API Secret Key")
+   let swifter = Swifter(consumerKey: "UhIGvRC8EL7QDo0aXs2Hwjv0B", consumerSecret: "5Qv87L0V2FtLR8tKkj02mf7hwY5mMUkKB8qTCF5oDpHoNJ7KRK")
     
     let classifier = TwitterSentimentClassifer()
         
@@ -36,40 +37,46 @@ class ViewController: UIViewController {
             // using Twitter Standard Search API
             //https://developer.twitter.com/en/docs/tweets/search/overview/standard
             //return a collection of relevant tweets based on a query
-            swifter.searchTweet(using: "Facebook", lang: "en", count: 50, tweetMode: TweetMode.extended, success: { (results, searchMetadata) in
+            swifter.searchTweet(using: "Facebook", lang: "en", count: 1000, tweetMode: TweetMode.extended, success: { (results, searchMetadata) in
                 // 'full_text' field of JSON holds the tweet message
                 
             var tweets = [TwitterSentimentClassiferInput]()
                 
-            //get 50 tweets about the input text
-            for x in 0..<50 {
+            //get 1000 tweets about the input text
+            for x in 0..<1000 {
                 if let tweet_msg = results[x]["full_text"].string {
                     tweets.append(.init(text: tweet_msg))
                 }
             }
+            
                 
             // do sentiment analysis on the tweets
             do {
                 let predictions = try self.classifier.predictions(inputs: tweets)
-                
                 // score general sentiment
                 var sScore = 0
                 for p in predictions {
                     let sent = p.label
+                    print(sent)
                     if sent == "Pos" {
-                         sScore += 1
+                         sScore = sScore + 1
                     }
                     else if sent == "Neg" {
-                        sScore -= 1
+                        sScore = sScore - 1
                     }
                 }
-                if sScore > 10 {
-                    self.sentimentLabel.text = "Twitter users regard this company positively! This stock is a good choice."
-                } else if sScore < -10 {
-                    self.sentimentLabel.text = "Twitter users do not like this company today. Invest at your own risk :("
+                if sScore > 5 {
+                    self.sentimentLabel.text = "great choice! very popular right now"
+                } else if sScore > 3 {
+                    self.sentimentLabel.text = "good but not great"
+                } else if sScore < -5 {
+                    self.sentimentLabel.text = "not too bad"
+                } else if sScore < -3 {
+                    self.sentimentLabel.text = "awful choice."
                 } else {
-                    self.sentimentLabel.text = "Twitter users are feeling neutral about this company."
+                    self.sentimentLabel.text = "this one is okay"
                 }
+                print(sScore)
                     
             } catch {
                 print("Error classifying tweets")
