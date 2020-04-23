@@ -133,6 +133,7 @@ class ViewController: UIViewController {
                      message = "Neutral"
                  }
                  let newSentiment = Sentiment()
+                
                  newSentiment.name = userInput
                  newSentiment.sentiment = message
                  newSentiment.sentimentScore = sScore
