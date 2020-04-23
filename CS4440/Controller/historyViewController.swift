@@ -10,7 +10,6 @@ import UIKit
 import RealmSwift
 
 class historyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
     
 
     var sents: Results<Sentiment>!
@@ -54,10 +53,10 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
         // need this for the next storyboard, it helps pass data from one to another
         if segue.identifier == "seeCompanyDetails"{
             print("preparing test")
+
+            let destination = segue.destination as! historyDetailsViewController
+            //destination.textField.text = "testing"
             
-            if let viewController = storyboard?.instantiateViewController(identifier: "historyDetailsViewController") as? historyDetailsViewController {
-                navigationController?.pushViewController(viewController, animated: true)
-            }
         }
     }
     

@@ -12,6 +12,8 @@ import RealmSwift
 
 class historyDetailsViewController: UIViewController {
     
+    @IBOutlet weak var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

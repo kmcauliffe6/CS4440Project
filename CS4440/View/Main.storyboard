@@ -113,7 +113,7 @@
                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="sentiment" destination="Qhv-KF-sdc" id="ktF-Vm-UhY"/>
-                                            <segue destination="eCR-4G-daa" kind="showDetail" identifier="seeCompanyDetails" id="c21-cO-Ry5"/>
+                                            <segue destination="WbC-kD-ZfF" kind="show" identifier="seeCompanyDetails" id="kB7-mT-4Iw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -137,7 +137,7 @@
             <objects>
                 <viewController id="eCR-4G-daa" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H2g-Ry-P27">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="mFg-zV-Ha2"/>
@@ -183,6 +183,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="274-eb-cnC"/>
                     </view>
+                    <navigationItem key="navigationItem" id="zXn-FQ-HYO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Bk-MX-LLC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
