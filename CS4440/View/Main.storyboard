@@ -113,7 +113,7 @@
                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="sentiment" destination="Qhv-KF-sdc" id="ktF-Vm-UhY"/>
-                                            <segue destination="WbC-kD-ZfF" kind="show" identifier="seeCompanyDetails" id="kB7-mT-4Iw"/>
+                                            <segue destination="WbC-kD-ZfF" kind="show" identifier="seeCompanyDetails" id="voW-r7-lEz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

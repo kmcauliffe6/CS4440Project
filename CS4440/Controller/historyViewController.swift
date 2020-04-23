@@ -46,7 +46,7 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // what happens when you click on a cell
-        self.performSegue(withIdentifier: "seeCompanyDetails", sender: self)
+        //self.performSegue(withIdentifier: "seeCompanyDetails", sender: self)
        }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,6 +56,7 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
 
             let destination = segue.destination as! historyDetailsViewController
             //destination.textField.text = "testing"
+            print(sender)
             
         }
     }
