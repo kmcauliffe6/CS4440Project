@@ -41,7 +41,7 @@ class ViewController: UIViewController {
             // using Twitter Standard Search API
             //https://developer.twitter.com/en/docs/tweets/search/overview/standard
             //return a collection of relevant tweets based on a query
-            swifter.searchTweet(using: "Facebook", lang: "en", count: 1000, tweetMode: TweetMode.extended, success: { (results, searchMetadata) in
+            swifter.searchTweet(using: userInput, lang: "en", count: 1000, tweetMode: TweetMode.extended, success: { (results, searchMetadata) in
                 // 'full_text' field of JSON holds the tweet message
                 
             var tweets = [TwitterSentimentClassiferInput]()
