@@ -59,6 +59,8 @@ class ViewController: UIViewController {
         total = [negData, posData, neuData]
         let chartDataSet = PieChartDataSet(entries: total, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
+        let colors = [UIColor(named: "negColor"), UIColor(named:"posColor"), UIColor(rgb: 0xc9f0ff)]
+        chartDataSet.colors = colors as! [NSUIColor] 
         pieChart.data = chartData
     }
 
@@ -70,7 +72,7 @@ class ViewController: UIViewController {
             // using Twitter Standard Search API
             //https://developer.twitter.com/en/docs/tweets/search/overview/standard
             //return a collection of relevant tweets based on a query
-            swifter.searchTweet(using: userInput, lang: "en", count: 100, tweetMode: TweetMode.extended, success: { (results, searchMetadata) in
+            swifter.searchTweet(using: userInput, lang: "en", count: 1000, tweetMode: TweetMode.extended, success: { (results, searchMetadata) in
                 // 'full_text' field of JSON holds the tweet message
                 
             var tweets = [TwitterSentimentClassiferInput]()
@@ -108,19 +110,19 @@ class ViewController: UIViewController {
                      }
                  }
                  if sScore > 5 {
-                     self.sentimentLabel.text = "great choice! very popular right now"
+                     self.sentimentLabel.text = "Great choice! very popular right now"
                      message = "Positive"
                  } else if sScore > 3 {
-                     self.sentimentLabel.text = "good but not great"
+                     self.sentimentLabel.text = "Good but not great"
                      message = "Positive"
                  } else if sScore < -5 {
-                     self.sentimentLabel.text = "awful choice"
+                     self.sentimentLabel.text = "Awful choice"
                      message = "Negative"
                  } else if sScore < -3 {
-                     self.sentimentLabel.text = "not too bad"
+                     self.sentimentLabel.text = "Not too bad"
                      message = "Negative"
                  } else {
-                     self.sentimentLabel.text = "this one is okay"
+                     self.sentimentLabel.text = "This one is okay"
                      message = "Neutral"
                  }
                  let newSentiment = Sentiment()
@@ -148,4 +150,23 @@ class ViewController: UIViewController {
     
     }
     
+}
+
+
+extension UIColor {
+   convenience init(red: Int, green: Int, blue: Int) {
+       assert(red >= 0 && red <= 255, "Invalid red component")
+       assert(green >= 0 && green <= 255, "Invalid green component")
+       assert(blue >= 0 && blue <= 255, "Invalid blue component")
+
+       self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+   }
+
+   convenience init(rgb: Int) {
+       self.init(
+           red: (rgb >> 16) & 0xFF,
+           green: (rgb >> 8) & 0xFF,
+           blue: rgb & 0xFF
+       )
+   }
 }
