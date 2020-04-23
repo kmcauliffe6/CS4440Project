@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         total = [negData, posData, neuData]
         let chartDataSet = PieChartDataSet(entries: total, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
-        let colors = [UIColor(named: "negColor"), UIColor(named:"posColor"), UIColor(rgb: 0xc9f0ff)]
+        let colors = [UIColor(named: "negColor"), UIColor(rgb: 0x0052a5), UIColor(rgb: 0xc9f0ff)]
         chartDataSet.colors = colors as! [NSUIColor] 
         pieChart.data = chartData
     }
@@ -135,7 +135,7 @@ class ViewController: UIViewController {
                  // updating the pie chart
                 self.negData.value = Double(negCount)
                 self.posData.value = Double(posCount)
-                self.neuData.value = Double(negCount)
+                self.neuData.value = Double(neutral)
                 self.updateChart()
                  //TODO tie to variables in tweets
                  self.save(sentiment: newSentiment)
