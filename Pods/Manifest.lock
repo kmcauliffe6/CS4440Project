@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.5.0):
+    - Charts/Core (= 3.5.0)
+  - Charts/Core (3.5.0)
   - Realm (4.4.1):
     - Realm/Headers (= 4.4.1)
   - Realm/Headers (4.4.1)
@@ -7,20 +10,23 @@ PODS:
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
+  - Charts
   - RealmSwift
   - SwiftyJSON
 
 SPEC REPOS:
   trunk:
+    - Charts
     - Realm
     - RealmSwift
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
   RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 031181b9aec6a26fbe8f17637d6329f859dc762e
+PODFILE CHECKSUM: c4ac31016262162b45f8143d57c3b9553a5bc074
 
 COCOAPODS: 1.8.1

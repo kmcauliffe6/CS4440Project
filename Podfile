@@ -9,4 +9,5 @@ target 'CS4440' do
 
 pod 'SwiftyJSON'
 pod 'RealmSwift'
+pod 'Charts'
 end

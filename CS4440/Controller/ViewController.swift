@@ -10,19 +10,28 @@ import UIKit
 import SwifteriOS
 import SwiftyJSON
 import RealmSwift
+import Charts
 
 class ViewController: UIViewController {
     
+
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var sentimentLabel: UITextView!
     @IBOutlet weak var predictB: UIButton!
+    @IBOutlet weak var pieChart: PieChartView!
+    
     
     // Instantiation using Twitter's OAuth Consumer Key and secret
    let swifter = Swifter(consumerKey: "UhIGvRC8EL7QDo0aXs2Hwjv0B", consumerSecret: "5Qv87L0V2FtLR8tKkj02mf7hwY5mMUkKB8qTCF5oDpHoNJ7KRK")
     
     let classifier = TwitterSentimentClassifer()
     let realm = try! Realm()
+    
+    var negData = PieChartDataEntry(value: 0)
+    var posData = PieChartDataEntry(value: 0)
+    var neuData = PieChartDataEntry(value: 0)
+    var total = [PieChartDataEntry]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +51,16 @@ class ViewController: UIViewController {
             print("Error saving sentiment \(error)")
         }
     }
-    
+    func updateChart() {
+        pieChart.chartDescription?.text = "Sentiments distribution"
+        negData.label = "Number of negative comments"
+        posData.label = "Number of positive comments"
+        neuData.label = "Number of neutral comments"
+        total = [negData, posData, neuData]
+        let chartDataSet = PieChartDataSet(entries: total, label: nil)
+        let chartData = PieChartData(dataSet: chartDataSet)
+        pieChart.data = chartData
+    }
 
 
     @IBAction func predictPressed(_ sender: Any) {
@@ -96,7 +114,7 @@ class ViewController: UIViewController {
                      self.sentimentLabel.text = "good but not great"
                      message = "Positive"
                  } else if sScore < -5 {
-                     self.sentimentLabel.text = "awful choice."
+                     self.sentimentLabel.text = "awful choice"
                      message = "Negative"
                  } else if sScore < -3 {
                      self.sentimentLabel.text = "not too bad"
@@ -112,6 +130,11 @@ class ViewController: UIViewController {
                  newSentiment.numNegative = negCount
                  newSentiment.numNeutral = neutral
                  newSentiment.numPositive = posCount
+                 // updating the pie chart
+                self.negData.value = Double(negCount)
+                self.posData.value = Double(posCount)
+                self.neuData.value = Double(negCount)
+                self.updateChart()
                  //TODO tie to variables in tweets
                  self.save(sentiment: newSentiment)
                  print(sScore)
