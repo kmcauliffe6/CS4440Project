@@ -5,7 +5,6 @@
 //  Created by yassine attia on 4/23/20.
 //  Copyright © 2020 Georgia Teach. All rights reserved.
 //
-
 import UIKit
 import RealmSwift
 import SwifteriOS
@@ -39,7 +38,7 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Here we configuere the cells that appears in the Table view
         let cell = tableView.dequeueReusableCell(withIdentifier: "fileCell", for: indexPath) as! sentTableViewCell
-        cell.textLabel?.text = arrOfSents[indexPath.row] 
+        cell.textLabel?.text = arrOfSents[indexPath.row]
         //cell.sentiment.text = "Sentiment: \(arrOfSents[indexPath.row]["sentiment"] as! String)"
         // We will add the time when we implement it
         //we will add a feature so when we click on a company name all its history appears
@@ -65,77 +64,101 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
 
             let destination = segue.destination as! historyDetailsViewController
             //destination.textField.text = "testing"
-            print(sender)
+            //print(sender)
             
         }
     }
 
     
     func load() {
-        let realm = try! Realm()
-        sents = realm.objects(Sentiment.self)
+        
         var message = ""
+        let realm = try! Realm()
+        self.sents = realm.objects(Sentiment.self)
         for s in sents {
             if(!arrOfSents.contains(s["name"] as! String)) {
                 //comName.append(s["name"] as! String)
                 arrOfSents.append(s["name"] as! String)
-                
-                //SAME CODE AS VIEW CONTROLLER
-                swifter.searchTweet(using: s["name"] as! String, lang: "en", count: 100, tweetMode: TweetMode.extended, success: { (results, searchMetadata) in
-                    // 'full_text' field of JSON holds the tweet message
-                var tweets = [TwitterSentimentClassiferInput]()
-                //get 1000 tweets about the input text
-                for x in 0..<100 {
-                    if let tweet_msg = results[x]["full_text"].string {
-                        tweets.append(.init(text: tweet_msg))
-                    }
-                }
-                // do sentiment analysis on the tweets
-                do {
-                     let predictions = try self.classifier.predictions(inputs: tweets)
-                     // score general sentiment
-                     var sScore = 0
-                     for p in predictions {
-                         let sent = p.label
-                         //print(sent)
-                         if sent == "Pos" {
-                              sScore = sScore + 1
-                         }
-                         else if sent == "Neg" {
-                             sScore = sScore - 1
-                         }
-                     }
-                    if sScore > 3 {
-                         message = "Positive"
-                     } else if sScore < -3 {
-                         message = "Negative"
-                     } else {
-                        message = "Neutral"
-                     }
-//                    self.comSentiment.append(message)
-                    
-                    } catch {
-                        print("Error classifying tweets")
-                    }
-                    }) { (err) in
-                        print("Error occured connecting to Twitter API")
-                }
-                let x = s["name"] as! String
-                arrOfSents.append("\(x)      \(message), a few seconds ago...")
+//                let x = s["name"] as! String
+//                
+//                //SAME CODE AS VIEW CONTROLLER
+//                let group = DispatchGroup()
+//                let queueSentiment = DispatchQueue(label: "Running sentiment")
+//                
+//                group.enter()
+//                print("in for loop")
+//                queueSentiment.async(group: group) {
+//                    print("testing")
+//                    message = self.getTwitterDetails(companyName: s["name"] as! String)
+//                    group.leave()
+//                }
+////                DispatchQueue.global().async {
+////
+////                    print("testing")
+////                    message = self.getTwitterDetails(companyName: s["name"] as! String)
+////                    group.leave()
+////                }
+//                group.notify(queue: .main) {
+//                    print("all done")
+//                }
+//                let m = message
+//                print("message: ", m)
+//                
+//                //self.arrOfSents.append("\(x)      \(m), a few seconds ago...")
+//                print(self.arrOfSents)
                 
             }
         }
-//        let x = comName.count - 1
-//        print(comName.count)
-//        print(self.comSentiment)
-        
 
-//        for i in 0..<x {
-//            var out = ("\(comName[i])...\(comSentiment[i]) a few seconds ago...")
-//            arrOfSents.append(out)
-//        }
             
     
     }
+    
+    func getTwitterDetails(companyName: String) -> String{
+        print("in helper method")
+        var message = ""
+        swifter.searchTweet(using: companyName, lang: "en", count: 100, tweetMode: TweetMode.extended, success: { (results, searchMetadata) in
+                                // 'full_text' field of JSON holds the tweet message
+                                
+            var tweets = [TwitterSentimentClassiferInput]()
+            //get 1000 tweets about the input text
+            for x in 0..<100 {
+                if let tweet_msg = results[x]["full_text"].string {
+                    tweets.append(.init(text: tweet_msg))
+                }
+            }
+            // do sentiment analysis on the tweets
+            print("before do")
+            do {
+                 let predictions = try self.classifier.predictions(inputs: tweets)
+                 // score general sentiment
+                 var sScore = 0
+                 for p in predictions {
+                     let sent = p.label
+                     //print(sent)
+                     if sent == "Pos" {
+                          sScore = sScore + 1
+                     }
+                     else if sent == "Neg" {
+                         sScore = sScore - 1
+                     }
+                 }
+                if sScore > 3 {
+                    message = "Positive"
+                 } else if sScore < -3 {
+                     message = "Negative"
+                 } else {
+                    message = "Neutral"
+                 }
+                                
+            } catch {
+                print("Error classifying tweets")
+            }
+            }) { (err) in
+                print("Error occured connecting to Twitter API")
+        }
+        return message
+    }
+    
  
 }

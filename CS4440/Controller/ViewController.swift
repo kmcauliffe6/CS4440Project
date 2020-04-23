@@ -12,6 +12,16 @@ import SwiftyJSON
 import RealmSwift
 import Charts
 
+extension String {
+    var alphanumeric: String {
+        return self.components(separatedBy: CharacterSet.alphanumerics.inverted).joined().lowercased()
+    }
+    
+    var letters: String {
+        return String(unicodeScalars.filter(CharacterSet.letters.contains))
+    }
+}
+
 class ViewController: UIViewController {
     
 
@@ -134,7 +144,8 @@ class ViewController: UIViewController {
                  }
                  let newSentiment = Sentiment()
                 
-                 newSentiment.name = userInput
+
+                newSentiment.name = userInput.letters.lowercased().capitalized
                  newSentiment.sentiment = message
                  newSentiment.sentimentScore = sScore
                  newSentiment.numNegative = negCount
