@@ -70,9 +70,9 @@ class ViewController: UIViewController {
                 } else if sScore > 3 {
                     self.sentimentLabel.text = "good but not great"
                 } else if sScore < -5 {
-                    self.sentimentLabel.text = "not too bad"
-                } else if sScore < -3 {
                     self.sentimentLabel.text = "awful choice."
+                } else if sScore < -3 {
+                    self.sentimentLabel.text = "not too bad"
                 } else {
                     self.sentimentLabel.text = "this one is okay"
                 }
