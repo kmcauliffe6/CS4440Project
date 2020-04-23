@@ -28,7 +28,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         predictB.layer.cornerRadius = 10
         predictB.clipsToBounds = true
-        load()
         
     }
     
@@ -44,18 +43,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func load() {
-        let realm = try! Realm()
-        var sents: Results<Sentiment> = realm.objects(Sentiment.self)
-        var set:
-        print("type : \(type(of: sents))")
-        for c in sents {
-            // print(type(of: c["name"]!))
-//            if arr.contains(c["name"]!) {
-//                 arr.append(c["name"]!)
-            }
-        print(Set(sents))
-    }
+
 
     @IBAction func predictPressed(_ sender: Any) {
         // checking text field is not empty
