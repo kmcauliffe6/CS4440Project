@@ -47,21 +47,28 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // what happens when you click on a cell
-
+        self.performSegue(withIdentifier: "seeCompanyDetails", sender: self)
        }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // need this for the next storyboard, it helps pass data from one to another
-    }
-    
-        func load() {
-            let realm = try! Realm()
-            sents = realm.objects(Sentiment.self)
-            for s in sents {
-                if(!arrOfSents.contains(s["name"] as! String)) {
-                    arrOfSents.append(s["name"] as! String)
-                }
+        if segue.identifier == "seeCompanyDetails"{
+            print("preparing test")
+            
+            if let viewController = storyboard?.instantiateViewController(identifier: "historyDetailsViewController") as? historyDetailsViewController {
+                navigationController?.pushViewController(viewController, animated: true)
             }
         }
+    }
+    
+    func load() {
+        let realm = try! Realm()
+        sents = realm.objects(Sentiment.self)
+        for s in sents {
+            if(!arrOfSents.contains(s["name"] as! String)) {
+                arrOfSents.append(s["name"] as! String)
+            }
+        }
+    }
  
 }

@@ -11,6 +11,7 @@
 		93C993CE245162DE002510E5 /* historyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C993CD245162DE002510E5 /* historyViewController.swift */; };
 		93C993D22451709A002510E5 /* sentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C993D12451709A002510E5 /* sentTableViewCell.swift */; };
 		B944060A245140FB00970ECC /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9440609245140FB00970ECC /* Sentiment.swift */; };
+		F468CE402451DB1F0010B708 /* historyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F468CE3F2451DB1F0010B708 /* historyDetailsViewController.swift */; };
 		F47C7A3D244E267A0074D635 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47C7A3C244E267A0074D635 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F49009072450AF7D00E4A958 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49009002450AEA200E4A958 /* RealmSwift.framework */; };
 		F4EE3E3B243D4744006A5F91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EE3E3A243D4744006A5F91 /* AppDelegate.swift */; };
@@ -68,6 +69,7 @@
 		93C993CD245162DE002510E5 /* historyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyViewController.swift; sourceTree = "<group>"; };
 		93C993D12451709A002510E5 /* sentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sentTableViewCell.swift; sourceTree = "<group>"; };
 		B9440609245140FB00970ECC /* Sentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentiment.swift; sourceTree = "<group>"; };
+		F468CE3F2451DB1F0010B708 /* historyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyDetailsViewController.swift; sourceTree = "<group>"; };
 		F47C7A3C244E267A0074D635 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49009002450AEA200E4A958 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EE3E37243D4744006A5F91 /* CS4440.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS4440.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,7 @@
 			children = (
 				F4EE3E4E243D47BF006A5F91 /* ViewController.swift */,
 				93C993CD245162DE002510E5 /* historyViewController.swift */,
+				F468CE3F2451DB1F0010B708 /* historyDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F468CE402451DB1F0010B708 /* historyDetailsViewController.swift in Sources */,
 				F4EE3E4F243D47BF006A5F91 /* ViewController.swift in Sources */,
 				B944060A245140FB00970ECC /* Sentiment.swift in Sources */,
 				F4EE3E55244D4A5C006A5F91 /* TwitterSentimentClassifer.mlmodel in Sources */,
