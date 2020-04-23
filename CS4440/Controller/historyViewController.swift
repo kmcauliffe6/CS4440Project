@@ -73,14 +73,15 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func load() {
         
-        var message = ""
+        
         let realm = try! Realm()
         self.sents = realm.objects(Sentiment.self)
         for s in sents {
             if(!arrOfSents.contains(s["name"] as! String)) {
+                var message = ""
                 //comName.append(s["name"] as! String)
                 arrOfSents.append(s["name"] as! String)
-                
+                let name = s["name"] as! String
                 //SAME CODE AS VIEW CONTROLLER
                 let group = DispatchGroup()
                 group.enter()
@@ -88,20 +89,18 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
                 DispatchQueue.global().async {
                     
                     print("testing")
-                    message = self.getTwitterDetails(companyName: s["name"] as! String)
+                    message = self.getTwitterDetails(companyName: name)
                     group.leave()
+                    
                 }
+                //print("left group")
                 group.wait()
+                print("after wait")
                 let x = s["name"] as! String
-                let m = message
-                print("message: ", m)
+                //print("message: ", m)
                 
-                self.arrOfSents.append("\(x)      \(m), a few seconds ago...")
+                self.arrOfSents.append("\(x)      \(message), a few seconds ago...")
                 print(self.arrOfSents)
-                
-                
-                
-                
                 
             }
         }
@@ -154,7 +153,8 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
                  } else {
                     message = "Neutral"
                  }
-                                
+                print("message: ", message)
+                
             } catch {
                 print("Error classifying tweets")
             }
