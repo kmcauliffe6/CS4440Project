@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var sentimentLabel: UILabel!
+    @IBOutlet weak var sentimentLabel: UITextView!
+    @IBOutlet weak var predictB: UIButton!
     
     // Instantiation using Twitter's OAuth Consumer Key and secret
    let swifter = Swifter(consumerKey: "UhIGvRC8EL7QDo0aXs2Hwjv0B", consumerSecret: "5Qv87L0V2FtLR8tKkj02mf7hwY5mMUkKB8qTCF5oDpHoNJ7KRK")
@@ -24,6 +25,9 @@ class ViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        predictB.layer.cornerRadius = 10
+        predictB.clipsToBounds = true
+        
     
     }
 
