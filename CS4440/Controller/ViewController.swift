@@ -26,7 +26,9 @@ class ViewController: UIViewController {
    let swifter = Swifter(consumerKey: "UhIGvRC8EL7QDo0aXs2Hwjv0B", consumerSecret: "5Qv87L0V2FtLR8tKkj02mf7hwY5mMUkKB8qTCF5oDpHoNJ7KRK")
     
     let classifier = TwitterSentimentClassifer()
-    let realm = try! Realm()
+    lazy var realm:Realm = {
+        return try! Realm()
+    } ()
     
     var negData = PieChartDataEntry(value: 0)
     var posData = PieChartDataEntry(value: 0)
@@ -76,7 +78,12 @@ class ViewController: UIViewController {
                 // 'full_text' field of JSON holds the tweet message
                 
             var tweets = [TwitterSentimentClassiferInput]()
-                
+            var timestmp = ""
+            let currentDateTime = Date()
+            let formatter = DateFormatter()
+            formatter.timeStyle = .short
+            formatter.dateStyle = .none
+            timestmp = formatter.string(from: currentDateTime)
             //get 1000 tweets about the input text
             for x in 0..<100 {
                 if let tweet_msg = results[x]["full_text"].string {
@@ -132,6 +139,7 @@ class ViewController: UIViewController {
                  newSentiment.numNegative = negCount
                  newSentiment.numNeutral = neutral
                  newSentiment.numPositive = posCount
+                newSentiment.timestamp = timestmp
                  // updating the pie chart
                 self.negData.value = Double(negCount)
                 self.posData.value = Double(posCount)

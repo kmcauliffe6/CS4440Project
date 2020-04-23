@@ -17,6 +17,7 @@ class Sentiment: Object {
     @objc dynamic var numNegative: Int = 0
     @objc dynamic var numNeutral: Int = 0
     @objc dynamic var numPositive: Int = 0
+    @objc dynamic var timestamp: String = ""
 
     //dynamic var time TYPE
 }
