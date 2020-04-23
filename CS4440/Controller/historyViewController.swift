@@ -79,6 +79,8 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
             if(!arrOfSents.contains(s["name"] as! String)) {
                 //comName.append(s["name"] as! String)
                 arrOfSents.append(s["name"] as! String)
+                
+                //SAME CODE AS VIEW CONTROLLER
                 swifter.searchTweet(using: s["name"] as! String, lang: "en", count: 100, tweetMode: TweetMode.extended, success: { (results, searchMetadata) in
                     // 'full_text' field of JSON holds the tweet message
                 var tweets = [TwitterSentimentClassiferInput]()
@@ -110,7 +112,7 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
                      } else {
                         message = "Neutral"
                      }
-                    self.comSentiment.append(message)
+//                    self.comSentiment.append(message)
                     
                     } catch {
                         print("Error classifying tweets")
@@ -118,12 +120,14 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }) { (err) in
                         print("Error occured connecting to Twitter API")
                 }
+                let x = s["name"] as! String
+                arrOfSents.append("\(x)      \(message), a few seconds ago...")
                 
             }
         }
-        let x = comName.count - 1
-        print(comName.count)
-        print(self.comSentiment)
+//        let x = comName.count - 1
+//        print(comName.count)
+//        print(self.comSentiment)
         
 
 //        for i in 0..<x {
