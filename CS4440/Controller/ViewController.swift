@@ -22,34 +22,44 @@ class ViewController: UIViewController {
    let swifter = Swifter(consumerKey: "UhIGvRC8EL7QDo0aXs2Hwjv0B", consumerSecret: "5Qv87L0V2FtLR8tKkj02mf7hwY5mMUkKB8qTCF5oDpHoNJ7KRK")
     
     let classifier = TwitterSentimentClassifer()
+    let realm = try! Realm()
         
     override func viewDidLoad() {
         super.viewDidLoad()
         predictB.layer.cornerRadius = 10
         predictB.clipsToBounds = true
+        load()
         
-    
     }
+    
+    
     func save(sentiment: Sentiment){
         do {
             let realm = try! Realm()
-            print(Realm.Configuration.defaultConfiguration.fileURL)
-
             try realm.write {
                 realm.add(sentiment)
             }
         } catch {
             print("Error saving sentiment \(error)")
         }
-        //return true
+    }
+    
+    func load() {
+        let realm = try! Realm()
+        var sents: Results<Sentiment> = realm.objects(Sentiment.self)
+        var set:
+        print("type : \(type(of: sents))")
+        for c in sents {
+            // print(type(of: c["name"]!))
+//            if arr.contains(c["name"]!) {
+//                 arr.append(c["name"]!)
+            }
+        print(Set(sents))
     }
 
     @IBAction func predictPressed(_ sender: Any) {
-        // when text field is not empy
+        // checking text field is not empty
         if let userInput = textField.text {
-            //testing classifier
-            //let output = try! classifier.prediction(text: "@Amazon is a terrible company")
-            //print(output.label) //printing neg!
             
             // using Twitter Standard Search API
             //https://developer.twitter.com/en/docs/tweets/search/overview/standard
@@ -78,7 +88,7 @@ class ViewController: UIViewController {
                  var message = ""
                  for p in predictions {
                      let sent = p.label
-                     print(sent)
+                     //print(sent)
                      if sent == "Pos" {
                           sScore = sScore + 1
                          posCount = posCount + 1
@@ -117,8 +127,7 @@ class ViewController: UIViewController {
                  //TODO tie to variables in tweets
                  self.save(sentiment: newSentiment)
                  print(sScore)
-                    
-            } catch {
+                            } catch {
                 print("Error classifying tweets")
             }
         }) { (err) in

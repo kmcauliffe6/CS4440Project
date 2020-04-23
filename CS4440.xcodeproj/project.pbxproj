@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2B4D25B639C26C3BB130A55B /* Pods_CS4440.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB0684B51D94C3B76D1609B /* Pods_CS4440.framework */; };
+		93C993CE245162DE002510E5 /* historyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C993CD245162DE002510E5 /* historyViewController.swift */; };
+		93C993D22451709A002510E5 /* sentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C993D12451709A002510E5 /* sentTableViewCell.swift */; };
 		B944060A245140FB00970ECC /* Sentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9440609245140FB00970ECC /* Sentiment.swift */; };
 		F47C7A3D244E267A0074D635 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47C7A3C244E267A0074D635 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F49009072450AF7D00E4A958 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49009002450AEA200E4A958 /* RealmSwift.framework */; };
@@ -63,6 +65,8 @@
 		25D17432DD2AD97B0E3C767C /* Pods-CS4440.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4440.release.xcconfig"; path = "Target Support Files/Pods-CS4440/Pods-CS4440.release.xcconfig"; sourceTree = "<group>"; };
 		4038F8C922121F7A65811281 /* Pods-CS4440.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4440.debug.xcconfig"; path = "Target Support Files/Pods-CS4440/Pods-CS4440.debug.xcconfig"; sourceTree = "<group>"; };
 		6EB0684B51D94C3B76D1609B /* Pods_CS4440.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CS4440.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93C993CD245162DE002510E5 /* historyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyViewController.swift; sourceTree = "<group>"; };
+		93C993D12451709A002510E5 /* sentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sentTableViewCell.swift; sourceTree = "<group>"; };
 		B9440609245140FB00970ECC /* Sentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentiment.swift; sourceTree = "<group>"; };
 		F47C7A3C244E267A0074D635 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49009002450AEA200E4A958 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,12 +97,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B944060B245140FF00970ECC /* Data Model */ = {
+		93C993CF2451632E002510E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F4EE3E50243D4801006A5F91 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		93C993D02451633B002510E5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F4EE3E4E243D47BF006A5F91 /* ViewController.swift */,
+				93C993CD245162DE002510E5 /* historyViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B944060B245140FF00970ECC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93C993D12451709A002510E5 /* sentTableViewCell.swift */,
 				B9440609245140FB00970ECC /* Sentiment.swift */,
 			);
-			path = "Data Model";
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BFBEA08793CDDD2AAF621CD1 /* Pods */ = {
@@ -138,9 +160,9 @@
 				F4EE3E45243D4746006A5F91 /* LaunchScreen.storyboard */,
 				F4EE3E48243D4746006A5F91 /* Info.plist */,
 				F4EE3E42243D4746006A5F91 /* Preview Content */,
-				F4EE3E4E243D47BF006A5F91 /* ViewController.swift */,
-				B944060B245140FF00970ECC /* Data Model */,
-				F4EE3E50243D4801006A5F91 /* Main.storyboard */,
+				93C993D02451633B002510E5 /* Controller */,
+				93C993CF2451632E002510E5 /* View */,
+				B944060B245140FF00970ECC /* Model */,
 			);
 			path = CS4440;
 			sourceTree = "<group>";
@@ -338,7 +360,9 @@
 				F4EE3E4F243D47BF006A5F91 /* ViewController.swift in Sources */,
 				B944060A245140FB00970ECC /* Sentiment.swift in Sources */,
 				F4EE3E55244D4A5C006A5F91 /* TwitterSentimentClassifer.mlmodel in Sources */,
+				93C993D22451709A002510E5 /* sentTableViewCell.swift in Sources */,
 				F4EE3E3B243D4744006A5F91 /* AppDelegate.swift in Sources */,
+				93C993CE245162DE002510E5 /* historyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
