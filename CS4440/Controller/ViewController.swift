@@ -54,15 +54,39 @@ class ViewController: UIViewController {
     
     
     func save(sentiment: Sentiment){
+        let df = DateFormatter()
+        df.dateFormat = "MM/dd/yy"
         do {
             let realm = try! Realm()
             try realm.write {
                 realm.add(sentiment)
+                
+                //testing adding an old timestamped Sentiment
+//                let newSent = Sentiment()
+//                let newDate =  Calendar.current.date(byAdding: .day, value: -32, to: Date())
+//                let strDate = df.string(from:newDate!)
+//                newSent.timestamp = strDate
+//                realm.add(newSent)
+//                print(realm.objects(Sentiment.self))
+                
+                //look for and remove old entries
+                let oneMonthAgoDate = Calendar.current.date(byAdding: .day, value: -30, to: Date())
+                let tooOld = df.string(from: oneMonthAgoDate!)
+//                print(tooOld)
+                for o in realm.objects(Sentiment.self) {
+                    let d = o.timestamp
+                    let ts = df.date(from: d)
+                    if ts != nil && ts! < oneMonthAgoDate! {
+                        realm.delete(o)
+                    }
+                }
+//                print(realm.objects(Sentiment.self))
             }
         } catch {
             print("Error saving sentiment \(error)")
         }
     }
+    
     func updateChart() {
         pieChart.chartDescription?.text = "Sentiments distribution"
         negData.label = "Number of negative comments"
