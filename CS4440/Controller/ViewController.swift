@@ -95,7 +95,7 @@ class ViewController: UIViewController {
         total = [negData, posData, neuData]
         let chartDataSet = PieChartDataSet(entries: total, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
-        let colors = [UIColor(named: "negColor"), UIColor(rgb: 0x0052a5), UIColor(rgb: 0xc9f0ff)]
+        let colors = [UIColor(named: "negColor"), UIColor(rgb: 0x0052a5), UIColor(rgb: 0x32322c)]
         chartDataSet.colors = colors as! [NSUIColor] 
         pieChart.data = chartData
     }
