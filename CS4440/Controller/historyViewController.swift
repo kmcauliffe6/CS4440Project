@@ -18,6 +18,7 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
     var comName :[String] = []
     var comSentiment :[String] = []
     //var arrOfSentsLabel: [String] = []
+    var s = "O"
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,6 +46,8 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.sentiment.text = "" // for now we can put anything here after probably average score
         return cell
     }
+    
+
 
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -55,19 +58,20 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // what happens when you click on a cell
         //self.performSegue(withIdentifier: "seeCompanyDetails", sender: self)
+        self.s = arrOfSents[indexPath.row]
+        self.performSegue(withIdentifier: "seeCompanyDetails", sender: self)
+       // tableView.deselectRow(at: indexPath, animated: true)
        }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // need this for the next storyboard, it helps pass data from one to another
-        if segue.identifier == "seeCompanyDetails"{
-            print("preparing test")
-
-            let destination = segue.destination as! historyDetailsViewController
-            //destination.textField.text = "testing"
-            //print(sender)
-            
+        let currComp = self.s
+        if let destination = segue.destination as? historyDetailsViewController {
+            destination.compname = currComp
         }
-    }
+            //tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
+        }
+
 
     
     func load() {
@@ -80,11 +84,11 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
                 //comName.append(s["name"] as! String)
                 arrOfSents.append(s["name"] as! String)
 //                let x = s["name"] as! String
-//                
+//
 //                //SAME CODE AS VIEW CONTROLLER
 //                let group = DispatchGroup()
 //                let queueSentiment = DispatchQueue(label: "Running sentiment")
-//                
+//
 //                group.enter()
 //                print("in for loop")
 //                queueSentiment.async(group: group) {
@@ -103,7 +107,7 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
 //                }
 //                let m = message
 //                print("message: ", m)
-//                
+//
 //                //self.arrOfSents.append("\(x)      \(m), a few seconds ago...")
 //                print(self.arrOfSents)
                 

@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tER-aC-pzd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -113,7 +113,6 @@
                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="sentiment" destination="Qhv-KF-sdc" id="ktF-Vm-UhY"/>
-                                            <segue destination="WbC-kD-ZfF" kind="show" identifier="seeCompanyDetails" id="voW-r7-lEz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -127,25 +126,13 @@
                         <viewLayoutGuide key="safeArea" id="Ifs-yu-gMP"/>
                     </view>
                     <navigationItem key="navigationItem" title=" History" id="Ggf-Zm-6hC"/>
+                    <connections>
+                        <segue destination="WbC-kD-ZfF" kind="show" identifier="seeCompanyDetails" id="jrg-x8-oPV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JLd-Qd-96Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1692.753623188406" y="141.96428571428569"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="J77-Aw-tVc">
-            <objects>
-                <viewController id="eCR-4G-daa" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="H2g-Ry-P27">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="mFg-zV-Ha2"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cfQ-eI-Eva" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2583" y="142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nbp-A8-70S">
@@ -173,21 +160,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="company details here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xf9-ud-waG">
-                                <rect key="frame" x="159" y="299" width="97" height="34"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M8Q-Z1-wak" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="172" width="374" height="664"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="company details here" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xf9-ud-waG">
+                                <rect key="frame" x="110" y="107" width="194" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="274-eb-cnC"/>
                     </view>
                     <navigationItem key="navigationItem" id="zXn-FQ-HYO"/>
+                    <connections>
+                        <outlet property="lineChartView" destination="M8Q-Z1-wak" id="cOL-an-jlw"/>
+                        <outlet property="textField" destination="xf9-ud-waG" id="m9p-oX-Qos"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Bk-MX-LLC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2570" y="787"/>
+            <point key="canvasLocation" x="2569.5652173913045" y="786.83035714285711"/>
         </scene>
     </scenes>
 </document>

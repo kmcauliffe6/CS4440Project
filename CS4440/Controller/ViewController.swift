@@ -91,8 +91,7 @@ class ViewController: UIViewController {
             var timestmp = ""
             let currentDateTime = Date()
             let formatter = DateFormatter()
-            formatter.timeStyle = .short
-            formatter.dateStyle = .none
+            formatter.dateStyle = .short
             timestmp = formatter.string(from: currentDateTime)
             //get 1000 tweets about the input text
             for x in 0..<100 {
