@@ -133,36 +133,43 @@ class ViewController: UIViewController {
                  var posCount = 0
                  var negCount = 0
                  var neutral = 0
+                //var irrelevant = 0
                  var message = ""
                  for p in predictions {
                      let sent = p.label
                      //print(sent)
-                     if sent == "Pos" {
+                     if sent == "positive" {
                           sScore = sScore + 1
                          posCount = posCount + 1
                      }
-                     else if sent == "Neg" {
+                     else if sent == "negative" {
                          sScore = sScore - 1
                          negCount = negCount + 1
                      }
-                     else if sent == "Neutral" {
+                     else if sent == "neutral" {
                          neutral = neutral + 1
                      }
-                 }
-                 if sScore > 5 {
-                     self.sentimentLabel.text = "Great choice! very popular right now"
+                     else if sent == "irrelevant" {
+                        neutral = neutral + 1
+                    }
+                }
+                if neutral > 90 {
+                    self.sentimentLabel.text = "Neutral results. Proceed with caution."
+                    message = "Neutral"
+                } else if sScore > 5 {
+                     self.sentimentLabel.text = "Positive results! Go for it!"
                      message = "Positive"
                  } else if sScore > 3 {
-                     self.sentimentLabel.text = "Good but not great"
+                     self.sentimentLabel.text = "Slightly positive results."
                      message = "Positive"
                  } else if sScore < -5 {
-                     self.sentimentLabel.text = "Awful choice"
+                     self.sentimentLabel.text = "Negative results. Avoid."
                      message = "Negative"
                  } else if sScore < -3 {
-                     self.sentimentLabel.text = "Not too bad"
+                     self.sentimentLabel.text = "Slightly negative results."
                      message = "Negative"
                  } else {
-                     self.sentimentLabel.text = "This one is okay"
+                     self.sentimentLabel.text = "Neutral results. Proceed with caution."
                      message = "Neutral"
                  }
                  let newSentiment = Sentiment()
