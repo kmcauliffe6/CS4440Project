@@ -35,14 +35,14 @@ class historyDetailsViewController: UIViewController {
     var arrOftimestamp :[String] = []
     var dataEntries:[ChartDataEntry] = []
     var compname = ""
-    
+    weak var axisFormatDelegate: IAxisValueFormatter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.text = "\(compname)'s History"
         //print(compname)
         
-        
+        axisFormatDelegate = self
         let realm = try! Realm()
         self.sents = realm.objects(Sentiment.self)
         //sents = sents.filter("name CONTAINS[cd] %@", "Apple") as! Results<Sentiment>
@@ -75,7 +75,9 @@ class historyDetailsViewController: UIViewController {
         lineChartView.backgroundColor = UIColor(red: 250/255, green:250/255, blue: 250/255, alpha: 1)
         lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         
-        //let xAxisValue = lineChartView.xAxis
+        let xAxisValue = lineChartView.xAxis
+        xAxisValue.valueFormatter = axisFormatDelegate
+        
         //xAxisValue.valueFormatter = axisFormateDelegate
     }
 //
