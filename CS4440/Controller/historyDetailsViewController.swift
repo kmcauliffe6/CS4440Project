@@ -39,7 +39,7 @@ class historyDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.text = "\(compname)'s Data"
+        textField.text = "\(compname)'s History"
         //print(compname)
         
         
@@ -72,7 +72,10 @@ class historyDetailsViewController: UIViewController {
         let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "Sentiment Score")
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
         lineChartView.data = lineChartData
-        let xAxisValue = lineChartView.xAxis
+        lineChartView.backgroundColor = UIColor(red: 250/255, green:250/255, blue: 250/255, alpha: 1)
+        lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        
+        //let xAxisValue = lineChartView.xAxis
         //xAxisValue.valueFormatter = axisFormateDelegate
     }
 //
