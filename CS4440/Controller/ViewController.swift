@@ -133,6 +133,7 @@ class ViewController: UIViewController {
                  var posCount = 0
                  var negCount = 0
                  var neutral = 0
+                var irrelevant = 0
                 //var irrelevant = 0
                  var message = ""
                  for p in predictions {
@@ -150,10 +151,10 @@ class ViewController: UIViewController {
                          neutral = neutral + 1
                      }
                      else if sent == "irrelevant" {
-                        neutral = neutral + 1
+                        irrelevant = irrelevant + 1
                     }
                 }
-                if neutral > 90 {
+                if neutral > 90 - irrelevant {
                     self.sentimentLabel.text = "Neutral results. Proceed with caution."
                     message = "Neutral"
                 } else if sScore > 5 {
