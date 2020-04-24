@@ -13,6 +13,7 @@ import SwiftyJSON
 class historyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 
+    @IBOutlet weak var tableView: UITableView!
     var sents: Results<Sentiment>!
     var arrOfSents :[String] = []
     var comName :[String] = []
@@ -69,7 +70,7 @@ class historyViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let destination = segue.destination as? historyDetailsViewController {
             destination.compname = currComp
         }
-            //tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
+        tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
         }
 
 
